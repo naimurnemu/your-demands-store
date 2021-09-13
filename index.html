@@ -29,7 +29,7 @@
 
     <body class="bg-light">
         <!-- header area -->
-        <header class="container">
+        <header class="container-fluid position-fixed nav-index">
             <!-- heading -->
             <h1 class="text-danger text-center m-3">
                 Search Your Choice, <span class="text-primary">Ranga</span>
@@ -57,21 +57,7 @@
         <!-- main area  -->
         <main class="main m-2 py-5">
             <section class="container-fluid">
-                <div class="row">
-                    <div
-                        class="
-                            col-md-8 col-lg-9 col-sm-12
-                            order-md-1 order-sm-2
-                        "
-                    >
-                        <div
-                            class="
-                                row row-cols-1 row-cols-md-2 row-cols-lg-3
-                                g-4
-                            "
-                            id="Product-container"
-                        ></div>
-                    </div>
+                <div class="row scroll-top">
                     <div
                         class="
                             col-md-4 col-lg-3 col-sm-12
@@ -80,7 +66,7 @@
                             pb-sm-5
                         "
                     >
-                        <div class="cart" id="my-cart">
+                        <div class="cart position-fixed table-index" id="my-cart ">
                             <table class="table table-striped">
                                 <thead>
                                     <h2>My-Cart</h2>
@@ -140,6 +126,21 @@
                             </div>
                         </div>
                     </div>
+                    <div
+                        class="
+                            col-md-8 col-lg-9 col-sm-12
+                            order-md-1 order-sm-2
+                        "
+                    >
+                        <div
+                            class="
+                                row row-cols-1 row-cols-md-2 row-cols-lg-3
+                                g-4
+                            "
+                            id="Product-container"
+                        ></div>
+                    </div>
+                    
                 </div>
             </section>
         </main>
