@@ -1,3 +1,13 @@
+/* // get data from input-field
+ const getInputData = (id) => {
+    const inputField = document.getElementById(id);
+    const inputValue = inputField.value;
+    return inputValue;
+    const searchValue = getInputData('search-field')
+};
+search query link khuje na paway code kora jayni
+const url = `https://fakestoreapi.com/search?query=${searchValue}` */
+
 // load data From server
 const loadProducts = () => {
     const url = `https://fakestoreapi.com/products`;
@@ -14,10 +24,10 @@ const showProducts = (products) => {
         const div = document.createElement("div");
         div.classList.add("col");
         div.innerHTML = `
-        <div class="card h-100 p-2">
+        <div class="card single-product h-100 p-2">
             <img
                 src="${product?.image}"
-                class="card-img-top img-fluid h-100"
+                class="p-3 card-img-top img-fluid h-100"
                 alt="product"
             />
             <div class="card-body">
@@ -27,13 +37,18 @@ const showProducts = (products) => {
                 </p>
                 <h3 class="text-secondary">Price: $ ${product.price}</h3>
             </div>
-            <div class="d-flex justify-content-between">
+            <div class="d-flex justify-content-between px-3">
             <button onclick="addToCart(${product?.price})" id="addToCart-btn" class="buy-now btn btn-outline-primary">add to cart</button>
             <button id="details-btn" class="btn btn-outline-danger">Details</button></div>
+            <div class="d-flex justify-content-around pt-3">
+            <h5 class="text-success text-center"><span>Total count:</span> <br><span><i class="fas fa-user-alt"></i> ${product?.rating?.count}</span></h5>
+            <h5 class="text-info text-center"><span>Rating:</span> <br><span><i class="fas fa-star-half-alt"></i> ${product?.rating?.rate}</span></h5>
             </div>
+            </div>
+            
         </div>
       `;
-        document.getElementById("all-products").appendChild(div);
+        document.getElementById("Product-container").appendChild(div);
     });
 };
 
