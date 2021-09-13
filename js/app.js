@@ -1,12 +1,4 @@
-/* // get data from input-field
- const getInputData = (id) => {
-    const inputField = document.getElementById(id);
-    const inputValue = inputField.value;
-    return inputValue;
-    const searchValue = getInputData('search-field')
-};
-search query link khuje na paway code kora jayni
-const url = `https://fakestoreapi.com/search?query=${searchValue}` */
+ 
 
 // load data From server
 const loadProducts = () => {
@@ -24,7 +16,7 @@ const showProducts = (products) => {
         const div = document.createElement("div");
         div.classList.add("col");
         div.innerHTML = `
-        <div class="card single-product h-100 p-2">
+        <div class="card h-100 p-2">
             <img
                 src="${product?.image}"
                 class="p-3 card-img-top img-fluid h-100"
@@ -35,11 +27,13 @@ const showProducts = (products) => {
                 <p class="card-text">
                      ${product?.category}
                 </p>
-                <h3 class="text-secondary">Price: $ ${product.price}</h3>
+                <h3 class="text-secondary text-center">Price: $ ${product.price}</h3>
             </div>
             <div class="d-flex justify-content-between px-3">
-            <button onclick="addToCart(${product?.price})" id="addToCart-btn" class="buy-now btn btn-outline-primary">add to cart</button>
-            <button id="details-btn" class="btn btn-outline-danger">Details</button></div>
+                <button onclick="addToCart(${product?.price})" id="addToCart-btn" class="buy-now btn btn-outline-primary">add to cart</button>
+                <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                Details</button>
+            </div>
             <div class="d-flex justify-content-around pt-3">
             <h5 class="text-success text-center"><span>Total count:</span> <br><span><i class="fas fa-user-alt"></i> ${product?.rating?.count}</span></h5>
             <h5 class="text-info text-center"><span>Rating:</span> <br><span><i class="fas fa-star-half-alt"></i> ${product?.rating?.rate}</span></h5>
@@ -49,6 +43,8 @@ const showProducts = (products) => {
         </div>
       `;
         document.getElementById("Product-container").appendChild(div);
+        const modalDiv = document.getElementById("modal-box");
+        modalDiv.innerHTML = ``;
     });
 };
 
@@ -132,3 +128,5 @@ const updateTotal = () => {
         getElementValue("total-tax");
     document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
+
+ 
