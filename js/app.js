@@ -1,5 +1,3 @@
- 
-
 // load data From server
 const loadProducts = () => {
     const url = `https://fakestoreapi.com/products`;
@@ -19,27 +17,23 @@ const showProducts = (products) => {
         <div class="card h-100 p-2">
             <img
                 src="${product?.image}"
-                class="p-3 card-img-top img-fluid h-100"
+                class="p-3 card-img-top h-50"
                 alt="product"
             />
             <div class="card-body">
-                <h4 class="card-title">${product?.title}</h4>
-                <p class="card-text">
-                     ${product?.category}
-                </p>
-                <h3 class="text-secondary text-center">Price: $ ${product.price}</h3>
-            </div>
-            <div class="d-flex justify-content-between px-3">
+                <h6 class="card-title m-0">${product?.title}</h5>
+                <h5 class="text-warning m-0 text-center">Price: $ ${product.price}</h5>
+                <h5 class="card-text m-0">
+                    <small> ${product?.category}</small>
+                </h5>
                 <button onclick="addToCart(${product?.price})" id="addToCart-btn" class="buy-now btn btn-outline-primary">add to cart</button>
                 <button type="button" class="btn btn-outline-danger" data-bs-toggle="modal" data-bs-target="#exampleModal">
                 Details</button>
-            </div>
-            <div class="d-flex justify-content-around pt-3">
-            <h5 class="text-success text-center"><span>Total count:</span> <br><span><i class="fas fa-user-alt"></i> ${product?.rating?.count}</span></h5>
-            <h5 class="text-info text-center"><span>Rating:</span> <br><span><i class="fas fa-star-half-alt"></i> ${product?.rating?.rate}</span></h5>
-            </div>
-            </div>
-            
+                <div class="d-flex justify-content-around pt-3">
+                    <small class=" text-success text-center"><span>Total count:</span> <br><span><i class="fas fa-user-alt"></i> ${product?.rating?.count}</span></small>
+                    <small class=" text-info text-center"><span>Rating:</span> <br><span><i class="fas fa-star-half-alt"></i> ${product?.rating?.rate}</span></small>
+                </div>
+            </div> 
         </div>
       `;
         document.getElementById("Product-container").appendChild(div);
@@ -128,5 +122,3 @@ const updateTotal = () => {
         getElementValue("total-tax");
     document.getElementById("total").innerText = grandTotal.toFixed(2);
 };
-
- 
